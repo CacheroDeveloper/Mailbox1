@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class Mail : MonoBehaviour
+[Serializable]
+public class Mail
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string id;
+    public string title;
+    public string message;
+    public bool isRead;
+    public bool isClaimed;
+    public int rewardAmount; // example reward (e.g., coins)
 
-    // Update is called once per frame
-    void Update()
+    public Mail(string title, string message, int rewardAmount)
     {
-        
+        this.id = Guid.NewGuid().ToString();
+        this.title = title;
+        this.message = message;
+        this.rewardAmount = rewardAmount;
+        this.isRead = false;
+        this.isClaimed = false;
     }
 }
